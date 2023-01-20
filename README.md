@@ -166,3 +166,7 @@ If you like this project...
 - This project is [MIT](https://github.com/BryteLitty/hello-microverse/blob/add-javascript-file/LICENSE) lincensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+Link to the project walkthrough: [Presentation](https://www.loom.com/share/a659b01c09b146e8a744187e78e75f3e)
+
