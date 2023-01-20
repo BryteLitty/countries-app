@@ -1,6 +1,5 @@
-
 body {
-    background-color: rgb(53, 53, 53) !important;
+    background-color: rgb(53, 53, 53);
 }
 
 input {
@@ -14,7 +13,7 @@ input {
 }
 
 input::placeholder {
-    color: red;
+    color: var(--placeholder-color);
 }
 
 
@@ -41,13 +40,13 @@ input::placeholder {
 .country-container {
     /* border: 1px solid #ccc; */
     padding: 5px;
-    transition: scale 250ms ease-in-out;
+    transition: transform 250ms ease-in-out;
 
 }
 
 .country-container:hover {
     cursor: pointer;
-    scale: 0.9;
+    transform: scale(0.9);
     border: 1px solid #979dac;}
 
 .dim {
@@ -83,6 +82,7 @@ input::placeholder {
 
 .details-badge{
     background-color: black;
+    color: white;
     margin-left: 5px;
     font-size: 0.8rem;
     padding: 2px 4px;
