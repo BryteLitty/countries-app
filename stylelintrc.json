@@ -35,6 +35,6 @@
     "**/bootstrap*.css",
     "**/*.js",
     "**/*.jsx",
-    "App.css"
+    "src/App.css"
   ]
 }
