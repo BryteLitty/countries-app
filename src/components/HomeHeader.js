@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { BsMicFill, BsGearFill, BsArrowLeft} from "react-icons/bs";
+import { BsMicFill, BsGearFill} from "react-icons/bs";
 import './Header.css';
 
 
