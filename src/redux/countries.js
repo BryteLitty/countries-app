@@ -5,19 +5,15 @@ const initialState = {
   countries: [],
 };
 
-
-
 export const getCountries = createAsyncThunk('Countries-Of-The-World/getCountries', async () => {
   try {
-    const res = await fetch('https://restcountries.com/v2/all')
+    const res = await fetch(endpoint)
       .then((data) => data.json());
     return res;
   } catch (error) {
     return error;
   }
 });
-
-
 
 const countriesSlice = createSlice({
   name: 'countries',
@@ -29,6 +25,5 @@ const countriesSlice = createSlice({
     }));
   },
 });
-
 
 export default countriesSlice.reducer;

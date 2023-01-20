@@ -1,35 +1,51 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
 const Country = ({ data }) => {
   const navigate = useNavigate();
+  const route = `/${data.name}`;
 
   const handleRoute = () => {
-    navigate(`/${data.name}`, { state: data });
+    navigate(route, { state: data });
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.keyCode === 13) {
+      handleRoute();
+    }
   };
 
   return (
-    <div onClick={handleRoute} className="country-container">
+    <button type="button" tabIndex={0} onClick={handleRoute} onKeyPress={handleKeyPress} className="country-container">
       <div className="img-holder">
-        <img className="flag" src={data.flag} alt={data.name}/>
+        <img className="flag" src={data.flag} alt={data.name} />
       </div>
       <div className="section-2">
         <h2>{data.name}</h2>
         <p>
-          Population: 
-            <span className="dim">{data.population}</span>
+          Population:
+          <span className="dim">{data.population}</span>
         </p>
-        {/* <p>
-          Continent: 
-           <span className="dim">{data.region}</span>
-        </p> */}
+
         <p>
-          Capital: 
-           <span className="dim">{data.capital}</span>
+          Capital:
+          <span className="dim">{data.capital}</span>
         </p>
       </div>
-    </div>
+    </button>
+
   );
+};
+
+Country.propTypes = {
+  data: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    flag: PropTypes.string.isRequired,
+    population: PropTypes.number.isRequired,
+    region: PropTypes.string.isRequired,
+    capital: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Country;
