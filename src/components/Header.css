@@ -1,0 +1,43 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    padding: 20px 80px;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+small {
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.to-back {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.nav-links {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 10px;
+    color: white;
+    cursor: pointer;
+}
+
