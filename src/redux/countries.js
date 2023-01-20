@@ -5,8 +5,6 @@ const initialState = {
   countries: [],
 };
 
-
-
 export const getCountries = createAsyncThunk('Countries-Of-The-World/getCountries', async () => {
   try {
     const res = await fetch(endpoint)
@@ -16,8 +14,6 @@ export const getCountries = createAsyncThunk('Countries-Of-The-World/getCountrie
     return error;
   }
 });
-
-
 
 const countriesSlice = createSlice({
   name: 'countries',
@@ -29,6 +25,5 @@ const countriesSlice = createSlice({
     }));
   },
 });
-
 
 export default countriesSlice.reducer;

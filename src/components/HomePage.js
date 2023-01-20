@@ -1,55 +1,52 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch} from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import HomeHeader from './HomeHeader';
-import { getCountries } from "../redux/countries";
-import CountryList from "./CountriesList";
+import { getCountries } from '../redux/countries';
+import CountryList from './CountriesList';
 
 const CountriesHome = () => {
-    const dispatch = useDispatch();
-    const countries = useSelector((state) => state.countriesData.countries);
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countriesData.countries);
 
-    const [searchCountry, setSearchCountry] = useState(' ')
+  const [searchCountry, setSearchCountry] = useState(' ');
 
-    useEffect(() => {
-        if (countries.length === 0) {
-        dispatch(getCountries());
-        }
-    }, [dispatch, countries.length]);
+  useEffect(() => {
+    if (countries.length === 0) {
+      dispatch(getCountries());
+    }
+  }, [dispatch, countries.length]);
 
-    const filteredCountries = countries.filter((country) => (
+  const filteredCountries = countries.filter((country) => (
     country.name.toLowerCase().includes(searchCountry.toLowerCase())
     || country.region.toLowerCase().includes(searchCountry.toLowerCase())));
 
+  if (!Array.isArray(countries)) {
+    return <div>Loading...</div>;
+  }
 
-    if (!Array.isArray(countries)) {
-      return <div>Loading...</div>;
-    }
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchCountry(e.target.value);
+  };
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-        setSearchCountry(e.target.value);
-    }
-
-    return (
-        <div>
-            <HomeHeader />
-            <div className="container">
-                <div className="search-box">
-                    <input 
-                        type="text" 
-                        placeholder="Search Country"
-                        name="searchCountry"
-                        onChange={handleSearch}
-                    />
-                </div>
-                
-                <CountryList countries={searchCountry.length ? filteredCountries : countries} />
-
-
-            </div>
+  return (
+    <div>
+      <HomeHeader />
+      <div className="container">
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search Country"
+            name="searchCountry"
+            onChange={handleSearch}
+          />
         </div>
-    )
-}
 
+        <CountryList countries={searchCountry.length ? filteredCountries : countries} />
+
+      </div>
+    </div>
+  );
+};
 
 export default CountriesHome;
